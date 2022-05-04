@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fizz Buzz</title>
+</head>
+<body >
+    <h1>Fizz Buzz</h1>
+
+    <div>
+        <label for="inputField">Enter a number: </label>
+        <input type="text" id="inputField" class="inputField">
+        <input type="submit" value="Submit Number" class="numberSubmit">
+    </div>
+    <div class="resultFizz">
+        <p class="numberInput"></p>
+        <p class="fizzBuzz"></p>
+    </div>
+    
+    <script>
+        
+        const numberInput = document.querySelector('.numberInput');
+        const fizzBuzz = document.querySelector('.fizzBuzz');
+        const inputSubmit = document.querySelector('.numberSubmit')
+        const numberField =document.querySelector('.inputField');
+
+        let numberCount = 1;
+        let resetButton;
+
+        function checkNumber() {
+            const userNumber = Number(numberField.value);
+            
+            if (userNumber % 15 === 0) {
+                fizzBuzz.textContent = 'FizzBuzz';
+            } else if (userNumber % 5 === 0) {
+                fizzBuzz.textContent = 'Buzz';
+            } else if (userNumber % 3 === 0) {
+                fizzBuzz.textContent = 'Fizz'
+            } else {
+                fizzBuzz.textContent = userNumber;
+            }
+
+            numberCount++;
+            numberField.value = '';
+            numberField.focus();
+        }
+
+        inputSubmit.addEventListener('click', checkNumber);
+
+        function resetNumber() {
+            numberCount = 1;
+            const resetNumber = document.querySelectorAll(resetButton);
+            numberField.disabled = false;
+            inputSubmit.disabled = false;
+            numberField = '  ';
+            numberField.focus();
+            fizzBuzz.style.backgrpundColor = 'white';
+            
+        }
+    </script>
+</body>
+</html>
